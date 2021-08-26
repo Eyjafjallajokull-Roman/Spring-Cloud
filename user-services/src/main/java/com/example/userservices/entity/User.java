@@ -1,4 +1,4 @@
-package com.example.userservices.model;
+package com.example.userservices.entity;
 
 import javax.persistence.*;
 
@@ -7,7 +7,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long user_id;
     @Column(nullable = false, unique = true)
     private String email;
     private String password;
@@ -16,12 +16,13 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+
     public Long getId() {
-        return id;
+        return user_id;
     }
 
     public User setId(Long id) {
-        this.id = id;
+        this.user_id = id;
         return this;
     }
 
