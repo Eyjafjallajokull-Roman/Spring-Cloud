@@ -9,7 +9,7 @@ public class RoomToDTOConvertor implements Converter<Room, RoomDTO> {
     public RoomDTO convert(Room room) {
         return new RoomDTO()
                 .setRoomNumber(room.getRoomNumber())
-                .setCategory(room.getCategory())
+                .setCategory(room.getCategory().name())
                 .setMaxOccupancy(room.getMaxOccupancy())
                 .setPrice(room.getPrice())
                 .setReserved(room.isReserved());

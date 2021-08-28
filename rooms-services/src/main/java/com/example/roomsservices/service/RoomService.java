@@ -8,9 +8,11 @@ public interface RoomService {
 
     RoomDTO getRoom(Long roomId);
 
-    RoomDTO save(RoomDTO room);
+    RoomDTO createRoom(RoomDTO room);
 
-    RoomDTO update(RoomDTO roomDTO, Long roomId);
+    RoomDTO updateRoom(RoomDTO roomDTO, Long roomId);
+
+    RoomDTO getRoomByNumber(Long roomNumber);
 
 
 }

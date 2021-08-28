@@ -1,10 +1,12 @@
 package com.example.roomsservices.dto;
 
 import com.example.roomsservices.entity.Category;
+import lombok.Data;
 
+@Data
 public class RoomDTO {
     private Long roomNumber;
-    private Category category;
+    private String category;
     private Long maxOccupancy;
     private Long price;
     private boolean isReserved;
@@ -18,11 +20,11 @@ public class RoomDTO {
         return this;
     }
 
-    public Category getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public RoomDTO setCategory(Category category) {
+    public RoomDTO setCategory(String category) {
         this.category = category;
         return this;
     }
