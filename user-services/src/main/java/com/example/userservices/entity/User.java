@@ -1,13 +1,16 @@
 package com.example.userservices.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
+@Data
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    private Long userId;
     @Column(nullable = false, unique = true)
     private String email;
     private String password;
@@ -16,18 +19,9 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-
-    public Long getId() {
-        return user_id;
-    }
-
-    public User setId(Long id) {
-        this.user_id = id;
+    public User setUserId(Long userId) {
+        this.userId = userId;
         return this;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public User setEmail(String email) {
@@ -35,17 +29,9 @@ public class User {
         return this;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public User setPassword(String password) {
         this.password = password;
         return this;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public User setName(String name) {
@@ -53,17 +39,9 @@ public class User {
         return this;
     }
 
-    public String getSurname() {
-        return surname;
-    }
-
     public User setSurname(String surname) {
         this.surname = surname;
         return this;
-    }
-
-    public Role getRole() {
-        return role;
     }
 
     public User setRole(Role role) {

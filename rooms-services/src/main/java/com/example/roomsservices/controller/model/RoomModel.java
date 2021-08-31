@@ -1,4 +1,4 @@
-package com.example.roomsservices.exception.model;
+package com.example.roomsservices.controller.model;
 
 import com.example.roomsservices.dto.RoomDTO;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;

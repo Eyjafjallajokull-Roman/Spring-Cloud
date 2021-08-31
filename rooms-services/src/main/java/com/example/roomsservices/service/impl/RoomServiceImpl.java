@@ -22,9 +22,9 @@ public class RoomServiceImpl implements RoomService {
 
 
     @Override
-    public void delete(Long roomId) {
-        roomRepository.findByRoomId(roomId).orElseThrow();
-        roomRepository.deleteById(roomId);
+    public void delete(Long roomNumber) {
+      Room room = roomRepository.findByRoomNumber(roomNumber).orElseThrow();
+        roomRepository.deleteById(room.getRoomId());
     }
 
     @Override
@@ -48,8 +48,8 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public RoomDTO updateRoom(RoomDTO dto, Long roomId) {
-        Room roomToUpdate = roomRepository.findByRoomId(roomId).orElseThrow(RoomNotFoundException::new);
+    public RoomDTO updateRoom(RoomDTO dto, Long roomNumber) {
+        Room roomToUpdate = roomRepository.findByRoomNumber(roomNumber).orElseThrow(RoomNotFoundException::new);
         Room room = mappingService.getRoomData(dto, roomToUpdate);
         roomRepository.save(room);
         return conversionService.convert(room, RoomDTO.class);

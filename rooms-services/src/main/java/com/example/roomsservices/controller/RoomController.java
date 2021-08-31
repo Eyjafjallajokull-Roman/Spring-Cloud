@@ -2,8 +2,8 @@ package com.example.roomsservices.controller;
 
 import com.example.roomsservices.api.RoomApi;
 import com.example.roomsservices.dto.RoomDTO;
-import com.example.roomsservices.exception.assembler.RoomAssembler;
-import com.example.roomsservices.exception.model.RoomModel;
+import com.example.roomsservices.controller.assembler.RoomAssembler;
+import com.example.roomsservices.controller.model.RoomModel;
 import com.example.roomsservices.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +19,8 @@ public class RoomController implements RoomApi {
     private RoomService roomService;
 
     @Override
-    public RoomModel getRoom(Long id) {
-        return roomAssembler.toModel(roomService.getRoom(id));
+    public RoomModel getRoom(Long roomNumber) {
+        return roomAssembler.toModel(roomService.getRoom(roomNumber));
     }
 
     @Override
@@ -29,13 +29,13 @@ public class RoomController implements RoomApi {
     }
 
     @Override
-    public RoomModel updateActivity(RoomDTO dto, Long id) {
-        return roomAssembler.toModel(roomService.updateRoom(dto, id));
+    public RoomModel updateRoom(RoomDTO dto, Long roomNumber) {
+        return roomAssembler.toModel(roomService.updateRoom(dto, roomNumber));
     }
 
     @Override
-    public ResponseEntity<Void> delete(Long id) {
-        roomService.delete(id);
+    public ResponseEntity<Void> delete(Long roomNumber) {
+        roomService.delete(roomNumber);
         return ResponseEntity.noContent().build();
     }
 

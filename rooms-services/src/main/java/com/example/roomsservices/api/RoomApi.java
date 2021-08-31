@@ -1,7 +1,7 @@
 package com.example.roomsservices.api;
 
 import com.example.roomsservices.dto.RoomDTO;
-import com.example.roomsservices.exception.model.RoomModel;
+import com.example.roomsservices.controller.model.RoomModel;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.*;
 public interface RoomApi {
 
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "id", paramType = "path", required = true, value = "Room id"),
+            @ApiImplicitParam(name = "roomNumber", paramType = "path", required = true, value = "Room number"),
     })
     @ApiOperation("Get Room")
-    @GetMapping("/{id}")
+    @GetMapping("/{roomNumber}")
     @ResponseStatus(HttpStatus.OK)
-    RoomModel getRoom(@PathVariable Long id);
+    RoomModel getRoom(@PathVariable Long roomNumber);
 
 
     @ApiOperation("Create Room")
@@ -29,18 +29,18 @@ public interface RoomApi {
     RoomModel createRoom(@RequestBody RoomDTO dto);
 
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "id", paramType = "path", required = true, value = "Room id"),
+            @ApiImplicitParam(name = "roomNumber", paramType = "path", required = true, value = "Room number"),
     })
     @ApiOperation("Update Activity")
-    @PatchMapping("/{id}")
+    @PatchMapping("/{roomNumber}")
     @ResponseStatus(HttpStatus.OK)
-    RoomModel updateActivity(@RequestBody RoomDTO dto, @PathVariable Long id);
+    RoomModel updateRoom(@RequestBody RoomDTO dto, @PathVariable Long roomNumber);
 
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "id", paramType = "path", required = true, value = "Room Id"),
+            @ApiImplicitParam(name = "roomNumber", paramType = "path", required = true, value = "Room number"),
     })
     @ApiOperation("Delete Room")
-    @DeleteMapping("/{id}")
-    ResponseEntity<Void> delete(@PathVariable Long id);
+    @DeleteMapping("/{roomNumber}")
+    ResponseEntity<Void> delete(@PathVariable Long roomNumber);
 
 }

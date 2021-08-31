@@ -6,11 +6,11 @@ public interface RoomService {
 
     void delete(Long roomId);
 
-    RoomDTO getRoom(Long roomId);
+    RoomDTO getRoom(Long roomNumber);
 
     RoomDTO createRoom(RoomDTO room);
 
-    RoomDTO updateRoom(RoomDTO roomDTO, Long roomId);
+    RoomDTO updateRoom(RoomDTO roomDTO, Long roomNumber);
 
     RoomDTO getRoomByNumber(Long roomNumber);
 

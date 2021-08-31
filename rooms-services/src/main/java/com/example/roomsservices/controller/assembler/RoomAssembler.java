@@ -1,8 +1,8 @@
-package com.example.roomsservices.exception.assembler;
+package com.example.roomsservices.controller.assembler;
 
 import com.example.roomsservices.controller.RoomController;
 import com.example.roomsservices.dto.RoomDTO;
-import com.example.roomsservices.exception.model.RoomModel;
+import com.example.roomsservices.controller.model.RoomModel;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 import org.springframework.stereotype.Component;
