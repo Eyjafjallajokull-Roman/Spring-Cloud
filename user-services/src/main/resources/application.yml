@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: USER-SERVICE
+  datasource:
+    url: jdbc:mysql://localhost:3306/hotel?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Europe/Kiev
+    username: root
+    password: root
+    tomcat:
+      driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+  instance:
+    hostname: localhost
+
+
+
+server:
+  port: 8002
