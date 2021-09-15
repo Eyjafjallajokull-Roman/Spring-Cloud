@@ -11,16 +11,44 @@ spring:
           uri: lb://USER-SERVICE
           predicates:
             - Path=/api/v1/users/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: USER-SERVICE
+                fallbackuri: forward:/userServiceFallMethod
         - id: ROOM-SERVICE
           uri: lb://ROOM-SERVICE
           predicates:
             - Path=/api/v1/rooms/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: ROOM-SERVICE
+                fallbackuri: forward:/roomServiceFallMethod
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timesInMilliseconds: 4000
+
+
 
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://localhost:8000/eureka/
+      defaultZone: http://localhost:8761/eureka/
   instance:
     hostname: localhost
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+

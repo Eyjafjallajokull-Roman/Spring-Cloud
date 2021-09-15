@@ -1,17 +1,17 @@
-package com.example.userservices;
+package com.example.hystrix.dashboard;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableFeignClients
-public class UserServicesApplication {
+@EnableHystrixDashboard
+public class HystrixDashboardApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UserServicesApplication.class, args);
+        SpringApplication.run(HystrixDashboardApplication.class, args);
     }
 
 }

@@ -28,8 +28,8 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public RoomDTO getRoom(Long roomId) {
-        Room room = roomRepository.findById(roomId).orElseThrow(RoomNotFoundException::new);
+    public RoomDTO getRoom(Long roomNumber) {
+        Room room = roomRepository.findByRoomNumber(roomNumber).orElseThrow(RoomNotFoundException::new);
         return conversionService.convert(room, RoomDTO.class);
 
     }

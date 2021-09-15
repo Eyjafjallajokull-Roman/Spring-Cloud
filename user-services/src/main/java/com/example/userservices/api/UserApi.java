@@ -1,6 +1,7 @@
 package com.example.userservices.api;
 
 import com.example.userservices.controller.model.UserModel;
+import com.example.userservices.dto.ResponseVO;
 import com.example.userservices.dto.UserDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -22,6 +23,9 @@ public interface UserApi {
     @ResponseStatus(HttpStatus.OK)
     UserModel getUser(@PathVariable String email);
 
+    @GetMapping("/{email}/{roomNumber}")
+    @ResponseStatus(HttpStatus.OK)
+    ResponseVO getUserWithRoom(@PathVariable String email, @PathVariable Long roomNumber);
 
     @ApiOperation("Create User")
     @PostMapping("/")
